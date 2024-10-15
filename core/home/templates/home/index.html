@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block start %}
+
+    <h1>This is returned by Django server</h1>
+    <br>
+
+    <a href="/contact">Contact</a>
+    ||
+    <a href="/about">About</a>
+    ||
+    <a href="/recipe">Recipe</a>
+    ||
+    <a href="/login-page">Login</a>
+    ||
+    <a href="/register-page">Register</a>
+
+    <div>
+      <h1>This is sent email</h1>
+      <a href="{% url 'send_email' %}" class="btn btn-success"> Send Email</a>
+    </div>
+    <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h2>   
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum ex possimus tempore vel doloremque velit libero! Aspernatur sequi assumenda aperiam ducimus ea voluptate, rerum aliquid doloremque laudantium voluptatum officiis veritatis!</p>
+    <table class="container">
+        <tr>
+          <th>Sr no</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Can vote</th>
+        
+        </tr>
+        {% for people in peoples %}
+        <tr>
+          <td>{{forloop.counter}}</td>  
+          <td>{{people.name}}</td>
+          <td>{{people.age}}</td>
+          <td {% if people.age >= 18 %} style="background: green"  {% else %} style="background: red" {% endif %}>
+            {% if people.age >= 18 %}
+            👍
+            {% else %}
+            👎
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    <p>{{text|truncatechars:80}}</p>
+    <script>
+        console.log("Hey Django")
+    </script>
+ 
+{% endblock %}
