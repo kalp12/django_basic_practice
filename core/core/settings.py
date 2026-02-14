@@ -129,6 +129,8 @@ USE_TZ = True
 # STATIC_URL = 'static/'
 import os
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 # ye JavaScript CSS HTML ke liye hota hai 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')    
 # # // ye django ki admin wali file hai
